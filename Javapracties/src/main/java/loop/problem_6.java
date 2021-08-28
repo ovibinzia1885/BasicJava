@@ -5,27 +5,25 @@ import java.util.Scanner;
 
 public class problem_6 {
     public static void main(String[] args) {
+        System.out.println("Input a number as a range to see prime numbers: ");
+        Scanner scanner=new Scanner(System.in);
+        int n=scanner.nextInt();
         int count=0;
-        Scanner input=new Scanner(System.in);
-        System.out.println("Enter a start  number");
-        int num=input.nextInt();
-        System.out.println("Enter  a end number");
-        int num1=input.nextInt();
-        for(int i=num;i<=num1;i++){
-            for(int j=2;j<=i-1;j++){
-                if(i%j==0){
-                    count ++;
+        for(int j=2;j<n;j++){
+            boolean flag=true;
+            for(int i=2;i<=j/2;i++){
+                if(j%i==0){
+                    flag=false;
                     break;
                 }
             }
-            if(count==0){
-                System.out.println(i);
-                count=0;
+
+            if(flag==true){
+                System.out.println(j);
+                count++;
             }
-
         }
-
-
+        System.out.println("Total prime numbers from 2 to "+n+" is "+count);
 
     }
 

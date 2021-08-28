@@ -3,59 +3,66 @@ package loop;
 import java.util.Scanner;
 
 public class problem_4 {
-    public static void main(String args[]) {
-        int balance = 5000, withdraw, deposit, pin = 123;
-        Scanner s = new Scanner(System.in);
-        System.out.println("please enter your pin");
-
-
-            while (pin != 1520) {
-                printf("ENTER YOUR SECRET PIN NUMBER:");
-                pin=s.nextInt();
-                if (pin != 1520)
-                    printf("PLEASE ENTER VALID PASSWORD\n");
-            }
-            do {
-                System.out.println("Automated Teller Machine");
-                System.out.println("Choose 1 for Withdraw");
-                System.out.println("Choose 2 for Deposit");
-                System.out.println("Choose 3 for Check Balance");
-                System.out.println("Choose 4 for EXIT");
-                System.out.print("Choose the operation you want to perform:");
-                int n = s.nextInt();
-
-
-                switch (n) {
-                    case 1:
-                        System.out.print("Enter money to be withdrawn:");
-                        withdraw = s.nextInt();
-                        if (balance >= withdraw) {
-                            balance = balance - withdraw;
-                            System.out.println("Please collect your money");
-                        } else {
-                            System.out.println("Insufficient Balance");
-                        }
-                        System.out.println("");
+    public static void main(String[] args) {
+        int PIN = 1234;
+        double balance = 5000;
+        System.out.println("1. Check balance");
+        System.out.println("2. Withdraw balance");
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                int count = 0;
+                for (int i = 1; i <= 3; i++) {
+                    System.out.println("Enter your PIN");
+                    int pin = scanner.nextInt();
+                    if (PIN == pin) {
+                        System.out.println("Balance is " + balance + " Tk");
                         break;
+                    } else {
+                        System.out.println("Wrong PIN inserted");
+                    }
+                    count++;
 
-                    case 2:
-                        System.out.print("Enter money to be deposited:");
-                        deposit = s.nextInt();
-                        balance = balance + deposit;
-                        System.out.println("Your Money has been successfully depsited");
-                        System.out.println("");
-                        break;
-
-                    case 3:
-                        System.out.println("Balance : " + balance);
-                        System.out.println("");
-                        break;
-
-                    case 4:
-                        System.exit(0);
                 }
-            }
+                if (count >= 3) {
+                    System.out.println("You have entered wrong PIN more than 3 times. Card has blocked.");
+                }
+                break;
+            case 2:
+                count = 0;
+                for (int i = 1; i <= 3; i++) {
+                    System.out.println("Enter your PIN");
+                    int pin = scanner.nextInt();
+                    if (PIN == pin) {
+                        System.out.println("Input amount that multiply by 500");
+                        int amount = scanner.nextInt();
+                        if (amount <= balance && amount % 500 == 0) {
+                            balance -= amount;
+                            System.out.println("Withdraw successful. Your current balance is " + balance + " Tk");
+                            break;
+                        } else if (amount > balance) {
+                            System.out.println("Not enough balance. Please input valid amount");
+                        } else {
+                            System.out.println("Balance is not multiply by 500. Please try with another amount");
+                        }
+                    } else if (PIN != pin) {
+                        System.out.println("Wrong PIN inserted");
+                    } else if (count >= 3) {
+                        System.out.println("You have entered wrong PIN more than 3 times. Card has blocked.");
+                    }
+                    count++;
+
+                }
+                if (count >= 3) {
+                    System.out.println("You have entered wrong PIN more than 3 times. Card has blocked.");
+                }
+                break;
+            default:
+                System.out.println("Please select option either 1 or 2");
+
         }
+    }
     }
 
 

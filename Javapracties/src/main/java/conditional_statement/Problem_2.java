@@ -6,46 +6,34 @@ import java.util.Scanner;
 //
 public class Problem_2 {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Input the swe101: ");
-        double swe101 = input.nextDouble();
-        System.out.print("Input the swe102: ");
-        double swe102 = input.nextDouble();
-        System.out.print("Input the swe103: ");
-        double swe103 = input.nextDouble();
-        System.out.print("Input the swe104: ");
-        double swe104 = input.nextDouble();
-        double avg = (swe101*4 + swe102*4 + swe103*4 + swe104*4) /12;
-        System.out.println(avg);
-        if(avg==40||avg<50){
-            System.out.println("your Grade is C ");
-        }
-        else if(avg==50||avg<60){
-            System.out.println("your Grade is C+ ");
-
-        }
-        else if(avg==60||avg<65){
-            System.out.println("your Grade is B ");
-
-        }
-        else if(avg==65||avg<70){
-            System.out.println("your Grade is B+ ");
-
-        }
-        else if(avg==70||avg<80){
-            System.out.println("your Grade is A ");
-
-        }
-        else if(avg==80||avg<=100){
-            System.out.println("your Grade is A+ ");
-
+        Scanner scanner = new Scanner(System.in);
+        double gpa = 0, total_gpa = 0;
+        for (int i = 1; i <= 4; i++) {
+            System.out.println("Input subject " + i + " marks: ");
+            int marks = scanner.nextInt();
+            if (marks >= 80 && marks <= 100) {
+                gpa = 4.0;
+            } else if (marks >= 75 && marks < 80) {
+                gpa = 3.75;
+            } else if (marks >= 70 && marks < 75) {
+                gpa = 3.50;
+            } else if (marks >= 65 && marks < 70) {
+                gpa = 3.25;
+            } else if (marks >= 60 && marks < 65) {
+                gpa = 3.00;
+            } else if (marks >= 55 && marks < 60) {
+                gpa = 2.75;
+            } else if (marks >= 50 && marks < 55) {
+                gpa = 2.50;
+            } else if (marks >= 40 && marks < 50) {
+                gpa = 2.25;
+            } else {
+                gpa = 0.00;
+            }
+            total_gpa += gpa;
         }
 
-        else{
-            System.out.println("Nothing");
-        }
-
+        System.out.println("CGPA= "+total_gpa/4);
 
     }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "Namzul Hoque ovy",
+  "Department": "IT",
+  "Designation": "Software Engineer",
+  "Contact": "013545485",
+  "Address": {
+    "Current_address": {
+      "Area": "Farmgate",
+      "post_office": "Farmgate",
+      "city": "Dhaka",
+
+    },
+    "Permanent_address": "Noakhali"
+  }
+}

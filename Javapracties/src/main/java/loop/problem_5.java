@@ -5,14 +5,12 @@ import java.util.Scanner;
 
 public class problem_5 {
     public static void main(String[] args) {
-        int i;
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Take a number as input from the user: ");
-        int number = input.nextInt();
-        for(i=1;i<=number;i++){
-            System.out.println("The number is :"+number*i);
+        System.out.println("Input a number to see the table");
+        Scanner scanner=new Scanner(System.in);
+        int number=scanner.nextInt();
+        for(int i=1;i<=10;i++){
+            int mul=number*i;
+            System.out.println(number+"*"+i+"="+mul);
         }
-
     }
 }
